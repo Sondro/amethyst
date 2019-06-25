@@ -63,18 +63,17 @@ impl DataDispose for GameData<'_, '_> {
 }
 
 /// Builder for default game data
-pub struct GameDataBuilder<'a, 'b, N: RealField = f32> {
+pub struct GameDataBuilder<'a, 'b> {
     disp_builder: DispatcherBuilder<'a, 'b>,
-    _marker: PhantomData<N>,
 }
 
-impl<'a, 'b, N: RealField + Default> Default for GameDataBuilder<'a, 'b, N> {
+impl<'a, 'b> Default for GameDataBuilder<'a, 'b> {
     fn default() -> Self {
         GameDataBuilder::new()
     }
 }
 
-impl<'a, 'b, N: RealField + Default> GameDataBuilder<'a, 'b, N> {
+impl<'a, 'b> GameDataBuilder<'a, 'b> {
     /// Create new builder
     pub fn new() -> Self {
         GameDataBuilder {
